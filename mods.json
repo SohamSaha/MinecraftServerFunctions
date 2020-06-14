@@ -1,0 +1,75 @@
+{
+    "Mods": [
+        {
+            "name": "AutoRegLib",
+            "link": "https://www.curseforge.com/minecraft/mc-mods/autoreglib",
+            "active" : "true"
+        },
+        {
+            "name": "Botania",
+            "link": "https://www.curseforge.com/minecraft/mc-mods/botania",
+            "active" : "true"
+        },
+        {
+            "name": "CodeChicken Lib",
+            "link": "https://www.curseforge.com/minecraft/mc-mods/codechicken-lib-1-8",
+            "active" : "true"
+        },
+        {
+            "name": "Curios API",
+            "link": "https://www.curseforge.com/minecraft/mc-mods/curios",
+            "active" : "true"
+        },
+        {
+            "name": "Ender Storage",
+            "link": "https://www.curseforge.com/minecraft/mc-mods/ender-storage-1-8",
+            "active" : "true"
+        },
+        {
+            "name": "Just Enough Items",
+            "link": "https://www.curseforge.com/minecraft/mc-mods/jei",
+            "active" : "true"
+        },
+        {
+            "name": "Patchouli",
+            "link": "https://www.curseforge.com/minecraft/mc-mods/patchouli",
+            "active" : "true"
+        },
+        {
+            "name": "PSI",
+            "link": "https://www.curseforge.com/minecraft/mc-mods/psi",
+            "active" : "true"
+        },
+        {
+            "name": "Waystone",
+            "link": "https://www.curseforge.com/minecraft/mc-mods/waystones",
+            "active" : "true"
+        },
+        {
+            "name": "Iron Chest",
+            "link": "https://www.curseforge.com/minecraft/mc-mods/iron-chests",
+            "active" : "true"
+        },
+        {
+            "name": "Equivalent Exchange",
+            "link": "https://www.curseforge.com/minecraft/mc-mods/projecte",
+            "active" : "true"
+        },
+        {
+            "name": "Refined Storage",
+            "link": "https://www.curseforge.com/minecraft/mc-mods/refined-storage",
+            "active" : "true"
+        },
+        {
+            "name": "Immersive Engineering",
+            "link": "https://www.curseforge.com/minecraft/mc-mods/immersive-engineering",
+            "active" : "false"
+        }
+    ],
+    "Documents": [
+        {
+            "name": "Installation Guide",
+            "link": "https://drive.google.com/file/d/1w2NQBrxDBNafMEOG2HMsFO25I-WJGHHF/view?usp=sharing"            
+        }
+    ]
+}
