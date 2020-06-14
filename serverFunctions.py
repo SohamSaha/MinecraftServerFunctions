@@ -1,4 +1,3 @@
-import subprocess
 import constants
 import json
 import socket
