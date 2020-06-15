@@ -78,4 +78,4 @@ class serverFunctions():
         #Iterate through the mod list and return the download links
         for mod in data['Mods']:
             if (mod['idNumber'] == str(args)):
-                return (mod['link'])
+                return ('```' + mod['link'] + '```')

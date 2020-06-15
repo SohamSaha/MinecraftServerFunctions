@@ -54,7 +54,9 @@ async def downloadError(ctx, error):
 @tasks.loop(seconds=60)
 async def changeStatus():
     if (myServer.serverCheckLoop()):
-        await client.change_presence(status=discord.Status.online)
+        await client.change_presence(status=discord.Status.online, game=discord.Game(name='Playing Minecraft'))
     else:
         await client.change_presence(status=discord.Status.offline)
+
+
 client.run(myServer.clientToken())
