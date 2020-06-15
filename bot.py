@@ -12,7 +12,8 @@ async def on_ready():
 
 @client.event
 async def on_command_error(ctx,error):
-    await ctx.send('That is not a valid command. Type in !help to see all the commands')
+    if isinstance(error, commands.CommandNotFound):
+        await ctx.send('That is not a valid command. Type in !help to see all the commands')
 
 @client.command(pass_context=True)
 async def help(ctx):
@@ -39,8 +40,13 @@ async def mods(ctx):
 async def instructions(ctx):
     await ctx.send(myServer.installationInstructions())
 
-@client.commandD()
+@client.command()
 async def download(ctx, arg):
     await ctx.send(myServer.getDownload(arg))
+
+@download.error
+async def downloadError(ctx, error):
+    if isinstance(error, commands.MissingRequiredArgument):
+        await ctx.send('``` You forgot to select a mod to download ```')
 
 client.run(myServer.clientToken())

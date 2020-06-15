@@ -65,3 +65,5 @@ class serverFunctions():
         for download in data['Mods']:            
             if (download['index'] == str(args)):
                 return ('```' + download['link'] + '```')
+            else:
+                return ('``` No mod exists with that index number ```')
