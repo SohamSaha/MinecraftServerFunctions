@@ -13,7 +13,9 @@ class serverFunctions():
         #open a socket connection with the location defined as the server
         s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         s.settimeout(3)
-        location = (os.environ['IP'],int(os.environ['PORT']))
+        IP = os.environ['IP']
+        PORT = int(os.environ['PORT'])
+        location = (IP,PORT)
         check=s.connect_ex(location)
 
         #if the port is open and listening, show that the server is up
