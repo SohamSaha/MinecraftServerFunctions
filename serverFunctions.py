@@ -50,7 +50,7 @@ class serverFunctions():
         #Iterate through the mod list and only return whichever mods are currently labelled as active
         for mod in data['Mods']:
             if (mod['active'] == 'true'):
-                modList.append(mod['index'] + '. ' + mod['name'])
+                modList.append(mod['idNumber'] + '. ' + mod['name'])
 
         return ('```' + '\n'.join(modList) + '```')
 

@@ -2,7 +2,7 @@ import discord
 from serverFunctions import serverFunctions
 from discord.ext import commands, tasks
 
-client = commands.Bot(command_prefix = "!")
+client = commands.Bot(command_prefix = "!", case_insensitive=True)
 client.remove_command('help')
 myServer = serverFunctions()
 
@@ -54,6 +54,7 @@ async def downloadError(ctx, error):
 @tasks.loop(seconds=60)
 async def changeStatus():
     if (myServer.serverCheckLoop()):
-        await client.change_presence(activity=discord.Game('hi'))
-
+        await client.change_presence(status=discord.Status.online)
+    else:
+        await client.change_presence(status=discord.Status.offline)
 client.run(myServer.clientToken())
