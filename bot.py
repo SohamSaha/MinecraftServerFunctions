@@ -8,6 +8,7 @@ myServer = serverFunctions()
 
 @client.event
 async def on_ready():
+    changeStatus.start()
     print ('Bot is ready.')
 
 @client.event
@@ -49,5 +50,10 @@ async def download(ctx, arg):
 async def downloadError(ctx, error):
     if isinstance(error, commands.MissingRequiredArgument):
         await ctx.send('``` You forgot to select a mod to download ```')
+
+@tasks.loop(seconds=60)
+async def changeStatus():
+    if (myServer.serverCheckLoop()):
+        await client.change_presence(activity=discord.Game('hi'))
 
 client.run(myServer.clientToken())
