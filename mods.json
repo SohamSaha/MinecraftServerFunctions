@@ -1,85 +1,85 @@
 {
     "Mods": [
         {
-            "index":"1",
+            "idNumber": "1",
             "name": "AutoRegLib",
             "link": "https://www.curseforge.com/minecraft/mc-mods/autoreglib",
             "active" : "true"
         },
         {
-            "index":"2",
+            "idNumber": "2",
             "name": "Botania",
             "link": "https://www.curseforge.com/minecraft/mc-mods/botania",
             "active" : "true"
         },
         {
-            "index":"3",
+            "idNumber": "3",
             "name": "CodeChicken Lib",
             "link": "https://www.curseforge.com/minecraft/mc-mods/codechicken-lib-1-8",
             "active" : "true"
         },
         {
-            "index":"4",
+            "idNumber": "4",
             "name": "Curios API",
             "link": "https://www.curseforge.com/minecraft/mc-mods/curios",
             "active" : "true"
         },
         {
-            "index":"5",
+            "idNumber": "5",
             "name": "Ender Storage",
             "link": "https://www.curseforge.com/minecraft/mc-mods/ender-storage-1-8",
             "active" : "true"
         },
         {
-            "index":"6",
+            "idNumber": "6",
             "name": "Just Enough Items",
             "link": "https://www.curseforge.com/minecraft/mc-mods/jei",
             "active" : "true"
         },
         {
-            "index":"7",
+            "idNumber": "7",
             "name": "Patchouli",
             "link": "https://www.curseforge.com/minecraft/mc-mods/patchouli",
             "active" : "true"
         },
         {
-            "index":"8",
+            "idNumber": "8",
             "name": "PSI",
             "link": "https://www.curseforge.com/minecraft/mc-mods/psi",
             "active" : "true"
         },
         {
-            "index":"9",
+            "idNumber": "9",
             "name": "Waystone",
             "link": "https://www.curseforge.com/minecraft/mc-mods/waystones",
             "active" : "true"
         },
         {
-            "index":"10",
+            "idNumber": "10",
             "name": "Iron Chest",
             "link": "https://www.curseforge.com/minecraft/mc-mods/iron-chests",
             "active" : "true"
         },
         {
-            "index":"11",
+            "idNumber": "11",
             "name": "Equivalent Exchange",
             "link": "https://www.curseforge.com/minecraft/mc-mods/projecte",
             "active" : "true"
         },
         {
-            "index":"12",
+            "idNumber": "12",
             "name": "Refined Storage",
             "link": "https://www.curseforge.com/minecraft/mc-mods/refined-storage",
             "active" : "true"
         },
         {
-            "index":"13",
+            "idNumber": "13",
             "name": "Mekanism",
             "link": "https://www.curseforge.com/minecraft/mc-mods/mekanism",
             "active" : "true"
         },
         {
-            "index":"14",
+            "idNumber": "14",
             "name": "Immersive Engineering",
             "link": "https://www.curseforge.com/minecraft/mc-mods/immersive-engineering",
             "active" : "false"

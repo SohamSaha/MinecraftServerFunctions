@@ -61,9 +61,6 @@ class serverFunctions():
         file.close()
         
         #Iterate through the mod list and return the download links
-        print (args)
-        for download in data['Mods']:            
-            if (download['index'] == str(args)):
-                return ('```' + download['link'] + '```')
-            else:
-                return ('``` No mod exists with that index number ```')
+        for mod in data['Mods']:
+            if (mod['idNumber'] == str(args)):
+                print (mod['link'])
