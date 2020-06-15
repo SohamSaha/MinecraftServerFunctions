@@ -39,4 +39,8 @@ async def mods(ctx):
 async def instructions(ctx):
     await ctx.send(myServer.installationInstructions())
 
+@client.commandD()
+async def download(ctx, arg):
+    await ctx.send(myServer.getDownload(arg))
+
 client.run(myServer.clientToken())

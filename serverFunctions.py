@@ -1,6 +1,4 @@
-import json
-import socket
-import os
+import json, socket, os
 
 
 class serverFunctions():
@@ -13,9 +11,7 @@ class serverFunctions():
         #open a socket connection with the location defined as the server
         s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         s.settimeout(3)
-        IP = os.environ['MINECRAFT_IP']
-        PORT = int(os.environ['MINECRAFT_PORT'])
-        location = (IP,PORT)
+        location = (os.environ['MINECRAFT_IP'],int(os.environ['MINECRAFT_PORT']))
         check=s.connect_ex(location)
 
         #if the port is open and listening, show that the server is up
@@ -55,3 +51,17 @@ class serverFunctions():
         for instruction in data['Documents']:
             if (instruction['name'] == 'Installation Guide'):
                 return ('```' + instruction['link'] + '```')
+
+    def getDownload(self, args):
+
+        #Read the JSON file in and then close the file
+        file = open('mods.json') 
+        with file as f:
+            data = json.load(f)
+        file.close()
+        
+        #Iterate through the mod list and return the download links
+        print (args)
+        for download in data['Mods']:            
+            if (download['index'] == str(args)):
+                return ('```' + download['link'] + '```')
