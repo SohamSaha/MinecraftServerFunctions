@@ -25,6 +25,7 @@ async def help(ctx):
     embed.add_field(name='!ping', value = 'Returns server status', inline=False)
     embed.add_field(name='!mods', value = 'Returns active server mods', inline=False)
     embed.add_field(name='!instructions', value = 'Returns installation instructions', inline=False)
+    embed.add_field(name='!download', value = 'Returns download link of selected mod', inline=False)
 
     await author.send(embed=embed)
 
