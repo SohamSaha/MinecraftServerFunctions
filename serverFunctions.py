@@ -13,8 +13,8 @@ class serverFunctions():
         #open a socket connection with the location defined as the server
         s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         s.settimeout(3)
-        IP = os.environ['IP']
-        PORT = int(os.environ['PORT'])
+        IP = os.environ['MINECRAFT_IP']
+        PORT = int(os.environ['MINECRAFT_PORT'])
         location = (IP,PORT)
         check=s.connect_ex(location)
 
