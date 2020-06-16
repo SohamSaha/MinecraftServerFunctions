@@ -44,7 +44,7 @@ async def instructions(ctx):
 
 @client.command()
 async def download(ctx):
-    await ctx.send(myServer.getDownload(arg))
+    await ctx.send(myServer.getDownload())
 
 @tasks.loop(seconds=60)
 async def changeStatus():
