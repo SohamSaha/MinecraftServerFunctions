@@ -57,4 +57,4 @@ class serverFunctions():
 
     def getDownload(self):
 
-        return ('``` \n' + 'Twitch Client: https://www.twitch.tv/downloads \n' + 'ProjectE: https://www.curseforge.com/minecraft/mc-mods/projecte ```')
+        return ('```Twitch Client: https://www.twitch.tv/downloads \n' + 'ProjectE: https://www.curseforge.com/minecraft/mc-mods/projecte ```')
