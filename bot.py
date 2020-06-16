@@ -26,7 +26,7 @@ async def help(ctx):
     embed.add_field(name='!ping', value = 'Returns server status', inline=False)
     embed.add_field(name='!mods', value = 'Returns active server mods', inline=False)
     embed.add_field(name='!instructions', value = 'Returns installation instructions', inline=False)
-    embed.add_field(name='!download', value = 'Returns download link of selected mod', inline=False)
+    embed.add_field(name='!download', value = 'Returns download link', inline=False)
 
     await author.send(embed=embed)
 
@@ -43,18 +43,13 @@ async def instructions(ctx):
     await ctx.send(myServer.installationInstructions())
 
 @client.command()
-async def download(ctx, arg):
+async def download(ctx):
     await ctx.send(myServer.getDownload(arg))
-
-@download.error
-async def downloadError(ctx, error):
-    if isinstance(error, commands.MissingRequiredArgument):
-        await ctx.send('``` You forgot to select a mod to download ```')
 
 @tasks.loop(seconds=60)
 async def changeStatus():
     if (myServer.serverCheckLoop()):
-        await client.change_presence(status=discord.Status.online, game=discord.Game(name='Playing Minecraft'))
+        await client.change_presence(status=discord.Status.online)
     else:
         await client.change_presence(status=discord.Status.offline)
 
