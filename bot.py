@@ -51,7 +51,7 @@ async def download(ctx):
 
 @tasks.loop(seconds=60)
 async def changeStatus():
-    if (myServer.serverCheckLoop()):
+    if (myServer.serverCheck()):
         await client.change_presence(status=discord.Status.online)
     else:
         await client.change_presence(status=discord.Status.offline)
