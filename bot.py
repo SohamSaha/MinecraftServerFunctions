@@ -34,7 +34,7 @@ async def help(ctx):
 async def ping(ctx):
     if (myServer.serverCheck()):
         await ctx.send('```' + 'Server is up' + '```')
-    else
+    else:
         await ctx.send('```' + 'Server is down' + '```')
 
 @client.command()
