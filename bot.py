@@ -32,7 +32,10 @@ async def help(ctx):
 
 @client.command()
 async def ping(ctx):
-    await ctx.send(myServer.serverCheck())
+    if (myServer.serverCheck()):
+        await ctx.send('```' + 'Server is up' + '```')
+    else
+        await ctx.send('```' + 'Server is down' + '```')
 
 @client.command()
 async def mods(ctx):
