@@ -1,10 +1,12 @@
 import discord
 from serverFunctions import serverFunctions
 from discord.ext import commands, tasks
+from misc import misc
 
 client = commands.Bot(command_prefix = "!", case_insensitive=True)
 client.remove_command('help')
 myServer = serverFunctions()
+miscFunctions = misc()
 
 @client.event
 async def on_ready():
@@ -23,7 +25,7 @@ async def help(ctx):
 
     embed = discord.Embed()
 
-    embed.add_field(name='!ping', value = 'Returns server status', inline=False)
+    embed.add_field(name='!serverstatus', value = 'Returns server status', inline=False)
     embed.add_field(name='!mods', value = 'Returns active server mods', inline=False)
     embed.add_field(name='!instructions', value = 'Returns installation instructions', inline=False)
     embed.add_field(name='!download', value = 'Returns download link', inline=False)
@@ -31,7 +33,7 @@ async def help(ctx):
     await author.send(embed=embed)
 
 @client.command()
-async def ping(ctx):
+async def serverstatus(ctx):
     if (myServer.serverCheck()):
         await ctx.send('```' + 'Server is up' + '```')
     else:
@@ -48,6 +50,11 @@ async def instructions(ctx):
 @client.command()
 async def download(ctx):
     await ctx.send(myServer.getDownload())
+
+@client.command():
+async def anjew(ctx):
+    embed = discord.Embed()
+    embed.set_image(url = miscFunctions.randomMenorah())
 
 @tasks.loop(seconds=60)
 async def changeStatus():
