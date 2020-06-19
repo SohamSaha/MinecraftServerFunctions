@@ -56,6 +56,8 @@ async def anjew(ctx):
     embed = discord.Embed()
     embed.set_image(url = miscFunctions.randomMenorah())
 
+    await ctx.send(embed=embed)
+
 @tasks.loop(seconds=60)
 async def changeStatus():
     if (myServer.serverCheck()):
