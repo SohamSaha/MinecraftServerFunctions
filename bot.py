@@ -51,7 +51,7 @@ async def instructions(ctx):
 async def download(ctx):
     await ctx.send(myServer.getDownload())
 
-@client.command():
+@client.command()
 async def anjew(ctx):
     embed = discord.Embed()
     embed.set_image(url = miscFunctions.randomMenorah())
