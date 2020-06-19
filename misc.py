@@ -1,4 +1,15 @@
+import random,json
+
 class misc():
 
     def randomMenorah(self):
-        return ('https://media.giphy.com/media/3htAT2no2D2ukVsUE2/giphy.gif')
+        file = open('gifs.json') 
+        with file as f:
+            data = json.load(f)
+        file.close()
+
+        number = random.randint(1,len(data['Menorah']))
+
+        for instruction in data['Menorah']:
+            if (instruction['id'] == str(number)):
+                print(instruction['link'])
