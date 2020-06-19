@@ -12,4 +12,4 @@ class misc():
 
         for instruction in data['Menorah']:
             if (instruction['id'] == str(number)):
-                print(instruction['link'])
+                return (instruction['link'])
