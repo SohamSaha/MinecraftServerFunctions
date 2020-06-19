@@ -63,9 +63,11 @@ async def anjew(ctx):
 async def londa(ctx):
 
     value = miscFunctions.londaQuotes()
-    if (value[0] == 'String'):
+    print (value[0])
+    print(value[1])
+    if (str(value[0]) == 'String'):
         await ctx.send(value[1])
-    elif (value[0] == 'Picture'):
+    elif (str(value[0]) == 'Picture'):
         await ctx.send(value[1])
 
 @tasks.loop(seconds=60)

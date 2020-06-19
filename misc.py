@@ -28,3 +28,8 @@ class misc():
                     return ('String', references['content'])
                 elif (references['type'] == 'picture'):
                     return ('Picture', references['content'])
+
+myObject = misc()
+value = myObject.londaQuotes()
+print(value[0])
+print(value[1])

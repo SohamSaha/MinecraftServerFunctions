@@ -1,0 +1,20 @@
+{
+    "Linda": [
+        {
+            "id": "1",
+            "type": "string",
+            "content": "The tears I cry today are the lube that I use to clap the cheeks of tomorrow"
+        },
+        {
+            "id": "2",
+            "type": "picture",
+            "content": "https://imgur.com/a/bWXi2TD"
+        },
+        {
+            "id": "3",
+            "type": "picture",
+            "content": "https://imgur.com/a/xmBQ17t"
+            
+        }
+    ]
+}
