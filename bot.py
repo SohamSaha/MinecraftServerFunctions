@@ -63,12 +63,12 @@ async def anjew(ctx):
 async def londa(ctx):
 
     value = miscFunctions.londaQuotes()
-    print (value[0])
-    print(value[1])
     if (str(value[0]) == 'String'):
-        await ctx.send(value[1])
+        await ctx.send('```' + value[1] + '```')
     elif (str(value[0]) == 'Picture'):
-        await ctx.send(value[1])
+        embed = discord.Embed()
+        embed.set_image(url = value[1])
+        await ctx.send(embed=embed)
 
 @tasks.loop(seconds=60)
 async def changeStatus():
