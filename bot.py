@@ -30,7 +30,6 @@ async def help(ctx):
     embed.add_field(name ='!instructions', value = 'Returns installation instructions', inline = False)
     embed.add_field(name ='!download', value = 'Returns download link', inline = False)
     embed.add_field(name ='!anjew', value = 'Returns a funny gif', inline = False)
-    embed.add_field(name ='!londa', value = 'Returns a quote', inline = False)
 
     await author.send(embed=embed)
 
@@ -59,17 +58,6 @@ async def anjew(ctx):
     embed.set_image(url = miscFunctions.randomMenorah())
 
     await ctx.send(embed=embed)
-
-@client.command()
-async def londa(ctx):
-
-    value = miscFunctions.londaQuotes()
-    if (str(value[0]) == 'String'):
-        await ctx.send('```' + value[1] + '```')
-    elif (str(value[0]) == 'Picture'):
-        embed = discord.Embed()
-        embed.set_image(url = value[1])
-        await ctx.send(embed=embed)
 
 @tasks.loop(seconds=60)
 async def changeStatus():
