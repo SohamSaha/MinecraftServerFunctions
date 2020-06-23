@@ -25,21 +25,12 @@ class serverFunctions():
 
     def activeModList(self):
         
-        return ('```The server is currently using Valhesia 2 Modpack + ProjectE on Minecraft 1.15.2. Please take a look at installation instructions to see how to install```')
+        return ('```The server is currently using Valhesia 2 Modpack. Please take a look at installation instructions to see how to install```')
 
     def installationInstructions(self):
 
-        #Read the JSON file in and then close the file
-        file = open('mods.json') 
-        with file as f:
-            data = json.load(f)
-        file.close()
-        
-        #Iterate through the mod list and return the installation instruction
-        for instruction in data['Documents']:
-            if (instruction['name'] == 'Installation Guide'):
-                return ('```' + instruction['link'] + '```')
+        return('```' + 'Instructions: https://drive.google.com/file/d/1w2NQBrxDBNafMEOG2HMsFO25I-WJGHHF/view?usp=sharing' + '```')
 
     def getDownload(self):
 
-        return ('```Twitch Client: https://www.twitch.tv/downloads \n' + 'ProjectE: https://www.curseforge.com/minecraft/mc-mods/projecte ```')
+        return ('```' + 'Mods: https://drive.google.com/file/d/1Rv0eodZw60ozQ59kFbEkNt7GQxg5V4T6/view?usp=sharing' + '```')
