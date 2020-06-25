@@ -10,12 +10,12 @@ class serverFunctions():
     def minecraftRole(self):
         return(os.environ['MINECRAFT_ROLE'])
 
-    def serverCheck(self):
+    def serverCheck(self, port):
 
         #open a socket connection with the location defined as the server
         s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         s.settimeout(3)
-        location = (os.environ['MINECRAFT_IP'],int(os.environ['MINECRAFT_PORT']))
+        location = (os.environ['MINECRAFT_IP'],int(port))
         check=s.connect_ex(location)
 
         #close the socket connection
@@ -40,4 +40,6 @@ class serverFunctions():
         return ('```' + 'Mods: https://drive.google.com/file/d/1Rv0eodZw60ozQ59kFbEkNt7GQxg5V4T6/view?usp=sharing' + '```')
 
     def wakeOnLAN(self):
-        send_magic_packet(os.environ['SERVER_MAC'], ip_address = os.environ['MINECRAFT_IP'], port = os.environ['WOL_PORT'])
+
+        send_magic_packet(os.environ['SERVER_MAC'], ip_address = os.environ['MINECRAFT_IP'], port = int(os.environ['WOL_PORT']))
+        return(self.serverCheck(int(os.environ['WOL_PORT'])))

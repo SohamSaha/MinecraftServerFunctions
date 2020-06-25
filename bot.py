@@ -1,7 +1,8 @@
-import discord
+import discord, os
 from serverFunctions import serverFunctions
 from misc import misc
 from discord.ext import commands, tasks
+import datetime
 
 client = commands.Bot(command_prefix = "!", case_insensitive=True)
 client.remove_command('help')
@@ -14,7 +15,7 @@ async def on_ready():
     print ('Bot is ready.')
 
 @client.event
-async def on_command_error(ctx,error):
+async def onCommandError(ctx,error):
     if isinstance(error, commands.CommandNotFound):
         await ctx.send('That is not a valid command. Type in !help to see all the commands')
 
@@ -35,7 +36,7 @@ async def help(ctx):
 
 @client.command()
 async def serverstatus(ctx):
-    if (myServer.serverCheck()):
+    if (myServer.serverCheck(os.environ['MINECRAFT_PORT'])):
         await ctx.send('```' + 'Server is up' + '```')
     else:
         await ctx.send('```' + 'Server is down' + '```')
@@ -63,11 +64,16 @@ async def anjew(ctx):
 @commands.has_role(myServer.minecraftRole())
 async def roles(ctx):
     user = ctx.author
-    await ctx.send(str(user) + 'checks fo the thing')
+    await ctx.send(str(user) + 'checks fo the thing adn current time: ' + datetime.datetime.now().time())
+
+@client.event
+async def onRolesError(ctx, error):
+    if isinstance(error, roles.MissingRole):
+        await ctx.send('You do not have the proper role: ' + + datetime.datetime.now().time())
 
 @tasks.loop(seconds=60)
 async def changeStatus():
-    if (myServer.serverCheck()):
+    if (myServer.serverCheck(os.environ['MINECRAFT_PORT'])):
         await client.change_presence(status=discord.Status.online)
     else:
         await client.change_presence(status=discord.Status.offline)
