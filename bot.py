@@ -63,7 +63,7 @@ async def anjew(ctx):
 @commands.has_role(myServer.minecraftRole())
 async def roles(ctx):
     user = ctx.author
-    await ctx.send('checks fo the thing')
+    await ctx.send(str(user) + 'checks fo the thing')
 
 @tasks.loop(seconds=60)
 async def changeStatus():
