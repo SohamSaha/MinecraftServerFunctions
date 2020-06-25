@@ -69,7 +69,7 @@ async def roles(ctx):
 @client.event
 async def onRolesError(ctx, error):
     if isinstance(error, roles.MissingRole):
-        await ctx.send('You do not have the proper role: ' + + datetime.datetime.now().time())
+        await ctx.send('You do not have the proper role: ' +  datetime.datetime.now().time())
 
 @tasks.loop(seconds=60)
 async def changeStatus():
