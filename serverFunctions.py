@@ -28,18 +28,13 @@ class serverFunctions():
             return False
 
     def activeModList(self):
-        
         return ('```The server is currently using Valhesia 2 Modpack. Please take a look at installation instructions to see how to install```')
 
     def installationInstructions(self):
-
         return('```' + 'Instructions: https://drive.google.com/file/d/1w2NQBrxDBNafMEOG2HMsFO25I-WJGHHF/view?usp=sharing' + '```')
 
     def getDownload(self):
-
         return ('```' + 'Mods: https://drive.google.com/file/d/1Rv0eodZw60ozQ59kFbEkNt7GQxg5V4T6/view?usp=sharing' + '```')
 
     def wakeOnLAN(self):
-
         send_magic_packet(os.environ['SERVER_MAC'], ip_address = os.environ['MINECRAFT_IP'], port = int(os.environ['WOL_PORT']))
-        return(self.serverCheck(int(os.environ['WOL_PORT'])))

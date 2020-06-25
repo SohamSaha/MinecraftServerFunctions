@@ -85,5 +85,4 @@ async def changeStatus():
     else:
         await client.change_presence(status=discord.Status.offline)
 
-
 client.run(myServer.clientToken())
