@@ -57,19 +57,20 @@ async def download(ctx):
 async def anjew(ctx):
     embed = discord.Embed()
     embed.set_image(url = miscFunctions.randomMenorah())
-
     await ctx.send(embed=embed)
 
 @client.command()
-@commands.has_role(myServer.minecraftRole())
 async def roles(ctx):
-    user = ctx.author
-    await ctx.send(str(user) + 'checks fo the thing adn current time: ' + datetime.datetime.now().time())
+    code = 0
+    current_time = datetime.datetime.now() 
+    for i in ctx.author.roles:
+        if (str(i.id) == '722016551049494581'):
+            code = 1
 
-@client.event
-async def onRolesError(ctx, error):
-    if isinstance(error, roles.MissingRole):
-        await ctx.send('You do not have the proper role: ' +  str(datetime.datetime.now().time()))
+    if (code == 1):
+        await ctx.send('you got the right role' + str(current_time.year))
+    elif (code == 0):
+        await ctx.send('no right role')
 
 @tasks.loop(seconds=60)
 async def changeStatus():
