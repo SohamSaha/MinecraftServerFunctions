@@ -68,7 +68,7 @@ async def roles(ctx):
             code = 1
 
     if (code == 1):
-        await ctx.send('you got the right role' + str(current_time.year))
+        await ctx.send('you got the right role' + str(current_time.hour))
     elif (code == 0):
         await ctx.send('no right role')
 
