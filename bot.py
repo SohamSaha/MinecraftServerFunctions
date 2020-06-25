@@ -62,15 +62,21 @@ async def anjew(ctx):
 @client.command()
 async def roles(ctx):
     code = 0
-    current_time = datetime.datetime.now() 
+    PST = datetime.datetime.now().hour - 7 
     for i in ctx.author.roles:
         if (str(i.id) == '722016551049494581'):
-            code = 1
+            if (PST > 10 and PST < 2):
+                code = 1
+            else:
+                errorCode = 'this command only works between 10 AM PST and 2 AM PST'
+                break
+        else:
+            errorCode = 'you do not have the proper roles'
 
     if (code == 1):
-        await ctx.send('you got the right role ' + str(current_time.hour) + ' ' + str(current_time.minute))
+        await ctx.send('you got the right role ' + str(PST))
     elif (code == 0):
-        await ctx.send('no right role')
+        await ctx.send('You cannot use this command because: ' + errorCode)
 
 @tasks.loop(seconds=60)
 async def changeStatus():
