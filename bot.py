@@ -63,10 +63,9 @@ async def anjew(ctx):
 async def roles(ctx):
     code = 0
     PST = datetime.datetime.now().hour - 7 
-    await ctx.send('current time: ' + str(datetime.datetime.now().hour) + ' and PST: ' + str(PST))
     for i in ctx.author.roles:
         if (str(i.id) == '722016551049494581'):
-            if (PST > 10 and PST < 2):
+            if (PST >= 10 or PST < 2):
                 code = 1
             else:
                 errorCode = 'this command only works between 10 AM PST and 2 AM PST'
