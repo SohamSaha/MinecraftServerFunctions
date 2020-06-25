@@ -63,6 +63,7 @@ async def anjew(ctx):
 async def roles(ctx):
     code = 0
     PST = datetime.datetime.now().hour - 7 
+    await ctx.send('current time: ' + str(datetime.datetime.now().hour) + ' and PST: ' + str(PST))
     for i in ctx.author.roles:
         if (str(i.id) == '722016551049494581'):
             if (PST > 10 and PST < 2):
