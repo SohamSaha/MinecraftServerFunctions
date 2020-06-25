@@ -1,10 +1,14 @@
 import json, socket, os
+from wakeonlan import send_magic_packet
 
 
 class serverFunctions():
 
     def clientToken(self):
         return (os.environ['DISCORD_TOKEN'])
+
+    def minecraftRole(self)
+        return(os.environ['MINECRAFT_ROLE'])
 
     def serverCheck(self):
 
@@ -34,3 +38,6 @@ class serverFunctions():
     def getDownload(self):
 
         return ('```' + 'Mods: https://drive.google.com/file/d/1Rv0eodZw60ozQ59kFbEkNt7GQxg5V4T6/view?usp=sharing' + '```')
+
+    def wakeOnLAN(self):
+        send_magic_packet(os.environ['SERVER_MAC'], ip_address = os.environ['MINECRAFT_IP'], port = os.environ['WOL_PORT'])

@@ -59,6 +59,12 @@ async def anjew(ctx):
 
     await ctx.send(embed=embed)
 
+@client.command()
+@commands.has_role(myServer.minecraftRole())
+async def roles(ctx):
+    user = ctx.author
+    await ctx.send('checks fo the thing')
+
 @tasks.loop(seconds=60)
 async def changeStatus():
     if (myServer.serverCheck()):
