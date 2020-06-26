@@ -40,17 +40,14 @@ class serverFunctions():
         send_magic_packet(os.environ['SERVER_MAC'], ip_address = os.environ['MINECRAFT_IP'], port = int(os.environ['WOL_PORT']))
 
     def serverSocket(self):
-        if (os.environ['test'] == '1'):
-            try:
-                s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-                s.connect((os.environ['MINECRAFT_IP'], int(os.environ['PYTHON_SERVER_PORT'])))
-                os.environ['test'] = '0'
-                msg = s.recv(20)
-                returnMessage = msg.decode('utf-8')
-                s.close()
-            except:
-                returnMessage = 'Computer not started'
-        else:
-            returnMessage = 'The command has already been run. The server should be up'
+        try:
+            s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+            s.connect((os.environ['MINECRAFT_IP'], int(os.environ['PYTHON_SERVER_PORT'])))
+            os.environ['test'] = '0'
+            msg = s.recv(20)
+            returnMessage = msg.decode('utf-8')
+            s.close()
+        except:
+            returnMessage = 'Computer has not started'
 
         return(returnMessage)
