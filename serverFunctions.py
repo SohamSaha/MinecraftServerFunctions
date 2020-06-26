@@ -42,11 +42,12 @@ class serverFunctions():
     def serverSocket(self):
         try:
             s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+            s.settimeout(10)
             s.connect((os.environ['MINECRAFT_IP'], int(os.environ['PYTHON_SERVER_PORT'])))
             msg = s.recv(200)
             returnMessage = msg.decode('utf-8')
             s.close()
-        except:
+        except socket.timeout:
             returnMessage = 'Computer has not started'
 
         return(returnMessage)
