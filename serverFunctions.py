@@ -43,7 +43,6 @@ class serverFunctions():
         try:
             s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
             s.connect((os.environ['MINECRAFT_IP'], int(os.environ['PYTHON_SERVER_PORT'])))
-            os.environ['test'] = '0'
             msg = s.recv(200)
             returnMessage = msg.decode('utf-8')
             s.close()
