@@ -60,12 +60,12 @@ async def anjew(ctx):
     await ctx.send(embed=embed)
 
 @client.command()
-async def roles(ctx):
+async def startcomputer(ctx):
     code = 0
     PST = datetime.datetime.now().hour - 7 
     for i in ctx.author.roles:
-        if (str(i.id) == '722016551049494581'):
-            if (PST >= 10 or PST < 2):
+        if (str(i.id) == str(os.environ['MINECRAFT_ROLE_ID'])):
+            if (PST >= int(os.environ['SERVER_START_TIME']) or PST < int(os.environ['SERVER_END_TIME'])):
                 code = 1
             else:
                 errorCode = 'this command only works between 10 AM PST and 2 AM PST'
@@ -74,7 +74,7 @@ async def roles(ctx):
             errorCode = 'you do not have the proper roles'
 
     if (code == 1):
-        await ctx.send('you got the right role ' + str(PST))
+        await ctx.send('Remote start not fully implemented yet')
     elif (code == 0):
         await ctx.send('You cannot use this command because: ' + errorCode)
 
