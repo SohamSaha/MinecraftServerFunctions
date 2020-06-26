@@ -42,7 +42,9 @@ class serverFunctions():
     def socketTest(self):
         s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         s.connect((os.environ['MINECRAFT_IP'], int(os.environ['PYTHON_SERVER_PORT'])))
+        string = 'initial : ' + os.environ['test']
         os.environ['test'] = '0'
+        string2 = 'after: ' + os.environ['test']
         msg = s.recv(20)
         s.close()
-        return(msg.decode('utf-8'))
+        return(msg.decode('utf-8') + string + string2)
