@@ -78,6 +78,10 @@ async def roles(ctx):
     elif (code == 0):
         await ctx.send('You cannot use this command because: ' + errorCode)
 
+@client.command()
+async def connect(ctx):
+    await ctx.send(myServer.socketTest())
+
 @tasks.loop(seconds=60)
 async def changeStatus():
     if (myServer.serverCheck(os.environ['MINECRAFT_PORT'])):

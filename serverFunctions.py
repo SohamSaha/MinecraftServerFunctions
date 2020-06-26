@@ -38,3 +38,10 @@ class serverFunctions():
 
     def wakeOnLAN(self):
         send_magic_packet(os.environ['SERVER_MAC'], ip_address = os.environ['MINECRAFT_IP'], port = int(os.environ['WOL_PORT']))
+
+    def socketTest(self):
+        s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        s.connect((os.environ['MINECRAFT_IP'], os.environ['PYTHON_SERVER_PORT']))
+
+        msg = s.recv(20)
+        return(msg.decode('utf-8'))
