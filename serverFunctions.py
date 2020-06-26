@@ -49,7 +49,7 @@ class serverFunctions():
                 returnMessage = msg.decode('utf-8')
                 s.close()
             except:
-                await ctx.send('connection not found')
+                returnMessage = 'Computer not started'
         else:
             returnMessage = 'The command has already been run. The server should be up'
 
