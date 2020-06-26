@@ -79,8 +79,8 @@ async def roles(ctx):
         await ctx.send('You cannot use this command because: ' + errorCode)
 
 @client.command()
-async def connect(ctx):
-    await ctx.send(myServer.socketTest())
+async def serverStart(ctx):
+    await ctx.send(myServer.serverSocket())
 
 @tasks.loop(seconds=60)
 async def changeStatus():
