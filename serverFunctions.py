@@ -41,7 +41,7 @@ class serverFunctions():
 
     def socketTest(self):
         s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        s.connect((os.environ['MINECRAFT_IP'], os.environ['PYTHON_SERVER_PORT']))
+        s.connect((os.environ['MINECRAFT_IP'], int(os.environ['PYTHON_SERVER_PORT'])))
 
         msg = s.recv(20)
         return(msg.decode('utf-8'))
