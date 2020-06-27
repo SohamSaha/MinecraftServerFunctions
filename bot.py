@@ -74,7 +74,7 @@ async def startcomputer(ctx):
             errorCode = 'you do not have the proper roles'
 
     if (code == 1):
-        await ctx.send('Remote start not fully implemented yet')
+        myServer.wakeOnLAN()
     elif (code == 0):
         await ctx.send('You cannot use this command because: ' + errorCode)
 
