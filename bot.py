@@ -74,7 +74,7 @@ async def startcomputer(ctx):
             errorCode = 'you do not have the proper roles'
 
     if (code == 1):
-        myServer.wakeOnLAN()
+        await ctx.send('Remote start not fully implemented yet')
     elif (code == 0):
         await ctx.send('You cannot use this command because: ' + errorCode)
 
@@ -89,4 +89,4 @@ async def changeStatus():
     else:
         await client.change_presence(status=discord.Status.offline)
 
-client.run(myServer.clientToken())
+client.run(os.environ['DISCORD_TOKEN'])

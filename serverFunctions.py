@@ -4,12 +4,6 @@ from wakeonlan import send_magic_packet
 
 class serverFunctions():
 
-    def clientToken(self):
-        return (os.environ['DISCORD_TOKEN'])
-
-    def minecraftRole(self):
-        return(os.environ['MINECRAFT_ROLE'])
-
     def serverCheck(self, port):
 
         #open a socket connection with the location defined as the server
