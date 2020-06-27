@@ -4,6 +4,7 @@ from wakeonlan import send_magic_packet
 
 class serverFunctions():
 
+
     def serverCheck(self, port):
 
         #open a socket connection with the location defined as the server
@@ -31,7 +32,8 @@ class serverFunctions():
         return ('```' + 'Mods: ' + str(os.environ['MOD_DOWNLOAD_LINK']) + '```')
 
     def wakeOnLAN(self):
-        return(send_magic_packet(os.environ['SERVER_MAC'], ip_address = os.environ['MINECRAFT_IP'], port = int(os.environ['WOL_PORT'])))
+        send_magic_packet(os.environ['SERVER_MAC'], ip_address = os.environ['MINECRAFT_IP'], port = int(os.environ['WOL_PORT']))
+        return('executed')
 
     def serverSocket(self):
         try:
