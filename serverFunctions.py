@@ -31,7 +31,7 @@ class serverFunctions():
         return ('```' + 'Mods: ' + str(os.environ['MOD_DOWNLOAD_LINK']) + '```')
 
     def wakeOnLAN(self):
-        send_magic_packet(os.environ['SERVER_MAC'], ip_address = os.environ['MINECRAFT_IP'], port = int(os.environ['WOL_PORT']))
+        return(send_magic_packet(os.environ['SERVER_MAC'], ip_address = os.environ['MINECRAFT_IP'], port = int(os.environ['WOL_PORT'])))
 
     def serverSocket(self):
         try:

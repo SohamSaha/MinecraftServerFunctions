@@ -53,11 +53,11 @@ async def instructions(ctx):
 async def download(ctx):
     await ctx.send(myServer.getDownload())
 
-@client.command()
-async def anjew(ctx):
-    embed = discord.Embed()
-    embed.set_image(url = miscFunctions.randomMenorah())
-    await ctx.send(embed=embed)
+# @client.command()
+# async def anjew(ctx):
+#     embed = discord.Embed()
+#     embed.set_image(url = miscFunctions.randomMenorah())
+#     await ctx.send(embed=embed)
 
 @client.command()
 async def startcomputer(ctx):
@@ -74,7 +74,7 @@ async def startcomputer(ctx):
             errorCode = 'you do not have the proper roles'
 
     if (code == 1):
-        await ctx.send('Remote start not fully implemented yet')
+        await ctx.send(myServer.wakeOnLAN())
     elif (code == 0):
         await ctx.send('You cannot use this command because: ' + errorCode)
 
