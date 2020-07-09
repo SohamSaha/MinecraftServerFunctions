@@ -1,4 +1,5 @@
 import discord, os
+import constants as const
 from serverFunctions import serverFunctions
 from misc import misc
 from discord.ext import commands, tasks
@@ -36,7 +37,7 @@ async def help(ctx):
 
 @client.command()
 async def serverstatus(ctx):
-    if (myServer.serverCheck(os.environ['MINECRAFT_PORT'])):
+    if (myServer.serverCheck(const.MINECRAFT_PORT)):
         await ctx.send('```' + 'Server is up' + '```')
     else:
         await ctx.send('```' + 'Server is down' + '```')
@@ -59,34 +60,34 @@ async def download(ctx):
 #     embed.set_image(url = miscFunctions.randomMenorah())
 #     await ctx.send(embed=embed)
 
-@client.command()
-async def startcomputer(ctx):
-    code = 0
-    PST = datetime.datetime.now().hour - 7 
-    for i in ctx.author.roles:
-        if (str(i.id) == str(os.environ['MINECRAFT_ROLE_ID'])):
-            if (PST >= int(os.environ['SERVER_START_TIME']) or PST < int(os.environ['SERVER_END_TIME'])):
-                code = 1
-            else:
-                errorCode = 'this command only works between 10 AM PST and 2 AM PST'
-                break
-        else:
-            errorCode = 'you do not have the proper roles'
+# @client.command()
+# async def startcomputer(ctx):
+#     code = 0
+#     PST = datetime.datetime.now().hour - 7 
+#     for i in ctx.author.roles:
+#         if (str(i.id) == str(os.environ['MINECRAFT_ROLE_ID'])):
+#             if (PST >= int(os.environ['SERVER_START_TIME']) or PST < int(os.environ['SERVER_END_TIME'])):
+#                 code = 1
+#             else:
+#                 errorCode = 'this command only works between 10 AM PST and 2 AM PST'
+#                 break
+#         else:
+#             errorCode = 'you do not have the proper roles'
 
-    if (code == 1):
-        await ctx.send(myServer.wakeOnLAN())
-    elif (code == 0):
-        await ctx.send('You cannot use this command because: ' + errorCode)
+#     if (code == 1):
+#         await ctx.send(myServer.wakeOnLAN())
+#     elif (code == 0):
+#         await ctx.send('You cannot use this command because: ' + errorCode)
 
-@client.command()
-async def serverStart(ctx):
-    await ctx.send(myServer.serverSocket())
+# @client.command()
+# async def serverStart(ctx):
+#     await ctx.send(myServer.serverSocket())
 
 @tasks.loop(seconds=60)
 async def changeStatus():
-    if (myServer.serverCheck(os.environ['MINECRAFT_PORT'])):
+    if (myServer.serverCheck(const.MINECRAFT_PORT)):
         await client.change_presence(status=discord.Status.online)
     else:
         await client.change_presence(status=discord.Status.offline)
 
-client.run(os.environ['DISCORD_TOKEN'])
+client.run(const.DISCORD_TOKEN)

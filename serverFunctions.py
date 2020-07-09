@@ -1,6 +1,6 @@
 import json, socket, os
 from wakeonlan import send_magic_packet
-
+import constants as const
 
 class serverFunctions():
 
@@ -10,7 +10,7 @@ class serverFunctions():
         #open a socket connection with the location defined as the server
         s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         s.settimeout(3)
-        location = (os.environ['MINECRAFT_IP'],int(port))
+        location = (const.MINECRAFT_IP,int(port))
         check=s.connect_ex(location)
 
         #close the socket connection
@@ -26,19 +26,19 @@ class serverFunctions():
         return ('```The server is currently using Valhesia 2 Modpack. Please take a look at installation instructions to see how to install```')
 
     def installationInstructions(self):
-        return('```' + 'Instructions: ' + str(os.environ['INSTRUCTIONS_LINK']) + '```')
+        return('```' + 'Instructions: ' + const.INSTRUCTIONS_LINK + '```')
 
     def getDownload(self):
-        return ('```' + 'Mods: ' + str(os.environ['MOD_DOWNLOAD_LINK']) + '```')
+        return ('```' + 'Mods: ' + const.MOD_DOWNLOAD_LINK + '```')
 
     def wakeOnLAN(self):
-        send_magic_packet(os.environ['SERVER_MAC'], ip_address = os.environ['MINECRAFT_IP'], port = int(os.environ['PYTHON_SERVER_PORT']))
+        send_magic_packet(const.SERVER_MAC, ip_address = const.MINECRAFT_IP, port = const.PYTHON_SERVER_PORT)
 
     def serverSocket(self):
         try:
             s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
             s.settimeout(10)
-            s.connect((os.environ['MINECRAFT_IP'], int(os.environ['PYTHON_SERVER_PORT'])))
+            s.connect((const.MINECRAFT_IP, const.PYTHON_SERVER_PORT))
             msg = s.recv(200)
             returnMessage = msg.decode('utf-8')
             s.close()
