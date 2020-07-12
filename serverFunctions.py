@@ -4,7 +4,6 @@ import constants as const
 
 class serverFunctions():
 
-
     def serverCheck(self, port):
 
         #open a socket connection with the location defined as the server
@@ -32,16 +31,4 @@ class serverFunctions():
         return ('```' + 'Mods: ' + const.MOD_DOWNLOAD_LINK + '```')
 
     def wakeOnLAN(self):
-        send_magic_packet(const.SERVER_MAC, ip_address = const.MINECRAFT_IP, port = const.PYTHON_SERVER_PORT)
-
-    def serverSocket(self):
-        try:
-            s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-            s.settimeout(10)
-            s.connect((const.MINECRAFT_IP, const.PYTHON_SERVER_PORT))
-            msg = s.recv(200)
-            returnMessage = msg.decode('utf-8')
-            s.close()
-        except socket.timeout:
-            returnMessage = 'Computer has not started'
-        return(returnMessage)
+        send_magic_packet(const.SERVER_MAC)
