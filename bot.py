@@ -55,6 +55,7 @@ async def download(ctx):
 
 @client.command()
 async def startcomputer(ctx):
+    global started
     if (started == 0):
         code = 0
         for i in ctx.author.roles:
