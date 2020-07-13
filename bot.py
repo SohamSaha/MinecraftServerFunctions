@@ -8,6 +8,7 @@ client = commands.Bot(command_prefix = "!", case_insensitive=True)
 client.remove_command('help')
 myServer = serverFunctions()
 miscFunctions = misc()
+started = 0
 
 @client.event
 async def on_ready():
@@ -54,22 +55,25 @@ async def download(ctx):
 
 @client.command()
 async def startcomputer(ctx):
-    code = 0
-    for i in ctx.author.roles:
-        if (str(i.id) == const.MINECRAFT_ROLE_ID):
-            if (datetime.datetime.now().hour >= const.SERVER_START_TIME) or datetime.datetime.now().hour < (const.SERVER_END_TIME):
-                code = 1
+    if (started == 0):
+        code = 0
+        for i in ctx.author.roles:
+            if (str(i.id) == const.MINECRAFT_ROLE_ID):
+                if (datetime.datetime.now().hour >= const.SERVER_START_TIME) or datetime.datetime.now().hour < (const.SERVER_END_TIME):
+                    code = 1
+                else:
+                    errorCode = 'this command only works between 10 AM PST and 2 AM PST'
+                    break
             else:
-                errorCode = 'this command only works between 10 AM PST and 2 AM PST'
-                break
-        else:
-            errorCode = 'you do not have the proper roles'
+                errorCode = 'you do not have the proper roles'
 
-    if (code == 1):
-        myServer.wakeOnLAN
-        await ctx.send('ha gey')
-    elif (code == 0):
-        await ctx.send('You cannot use this command because: ' + errorCode)
+        if (code == 1):
+            started = 1
+            myServer.wakeOnLAN()
+        elif (code == 0):
+            await ctx.send('You cannot use this command because: ' + errorCode)
+    elif (started == 1):
+        await ctx.send('calm yo ass it started')
 
 @tasks.loop(seconds=60)
 async def changeStatus():
